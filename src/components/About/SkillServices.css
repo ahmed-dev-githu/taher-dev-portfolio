@@ -1,0 +1,149 @@
+.Skills-Section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    text-align: center;
+}
+.Skills-Section h1{
+    font-size: 50px;
+    color: transparent;
+    background: linear-gradient(to right,rgb(128, 104, 202),pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 60px;
+}
+.Skill-Cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 89%;
+}
+.Services-Cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+.Skill-Card{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #7d2ae8;
+    border-radius: 10px;
+    width: 200px;
+    height: 180px;
+    box-shadow: 0 1px 12px rgb(128, 104, 202);
+}
+.Service-Card{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid rgb(188, 153, 212);
+    border-radius: 10px;
+    width: 270px;
+    height: 230px;
+    box-shadow: 0 1px 12px rgb(211, 156, 233);
+}
+.Service-Card i{
+    font-size: 60px;
+    color: rgb(211, 156, 233);
+    margin-bottom: 20px;
+}
+.Service-Card p{
+    font-size: 14px;
+    color: #b3aeaec9;
+}
+.lightPat{
+    position: absolute;
+    left: 100%;
+    top: 250%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightPatt{
+    position: absolute;
+    left: 50%;
+    top: 250%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 250px;
+    height: 250px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightPatSt{
+    position: absolute;
+    left: -5%;
+    top: 250%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightParr{
+    position: absolute;
+    left: -5%;
+    top: 330%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightParrr{
+    position: absolute;
+    left: 100%;
+    top: 330%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightParrrs{
+    position: absolute;
+    left: 50%;
+    top: 340%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 600px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}

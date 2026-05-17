@@ -1,0 +1,22 @@
+.BRFu {
+    width: 100%;
+    height: 100px;
+    background: transparent;   
+}
+/* App.css */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* App.css */
+
+/* بنطبقها على الـ html والـ body مع بعض عشان نضمن المتصفحات */
+html, body {
+  scroll-behavior: smooth !important;
+}
+
+/* التركة دي عشان لو فيه أي Scroll Container تاني */
+* {
+  scroll-behavior: smooth !important;
+}
+/* الحالة المبدئية للعنصر: مخفي ومنزاح للأسفل */

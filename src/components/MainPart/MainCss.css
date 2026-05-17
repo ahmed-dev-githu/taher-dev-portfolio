@@ -1,0 +1,48 @@
+.MainPart{
+    width: 600px;
+    height: 500px;
+    background: transparent;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    border-radius: 19px;
+}
+.MainPart .WhoJop span{
+    font-size: 60px;
+    margin: 0;
+    background: linear-gradient(to right, rgb(93,69,145), rgb(218, 183, 224));
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: bolder;
+    display: block;
+}
+.p{
+    width: 80%;
+    margin: 8px;
+    font-size: 18px;
+}
+#btn{
+    margin: 10px;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    transition: 0.6s  ease;
+
+}
+#btn:hover{
+    transform: scale(1.1);
+}
+.socialLink{
+    background: transparent;
+    display: inline-block;
+    width: 120px;
+    padding: 7px;
+}
+.socialLink a{
+    color: #7d2ae8;
+    font-size: 20px;
+    margin-left: 10px;
+}

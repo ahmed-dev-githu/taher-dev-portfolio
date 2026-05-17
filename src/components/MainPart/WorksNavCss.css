@@ -1,0 +1,19 @@
+.WorksNav{
+    width: 100%;
+    background: rgb(11, 6, 15);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    gap: 300px;
+}
+.card{
+    background-color: transparent;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
