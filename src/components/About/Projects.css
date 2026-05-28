@@ -1,0 +1,309 @@
+/* Projects.css */
+
+#projects-section {
+    padding: 100px 0;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    background: transparent; /* لكي يظهر الـ gradient الخلفي الأب */
+}
+
+/* العنوان الرئيسي للقسم */
+.section-title {
+    font-size: 50px;
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(to right, rgb(93, 69, 145), rgb(218, 183, 224));
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-align: center;
+    
+}
+
+/* شبكة المشاريع (Grid) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+/* تنسيق كارت المشروع (SkillCard) */
+.project-card {
+    background: rgba(137, 107, 197, 0.05); /* بنفسجي خفيف جداً شفاف */
+    border: 1px solid rgba(137, 107, 197, 0.1);
+    border-radius: 20px;
+    overflow: hidden; /* لضمان عدم خروج الصورة من الحواف المنحنية */
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+/* تأثير الـ Hover والـ Glow */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgb(137, 107, 197);
+    box-shadow: 0 15px 40px rgba(137, 107, 197, 0.4);
+}
+
+/* الجزء العلوي للكارت (الصورة والـ Overlay) */
+.project-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لضمان عدم تمدد الصورة */
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1); /* تأثير زوم خفيف للصورة */
+}
+
+/* الـ Overlay اللي بيظهر فيه الروابط */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.9); /* أسود شفاف */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 20px;
+}
+
+.project-links a {
+    color: white;
+    font-size: 30px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.project-links a:hover {
+    color: rgb(218, 183, 224);
+    transform: scale(1.2);
+}
+
+/* الجزء السفلي للكارت (المحتوى) */
+.project-content {
+    padding: 25px;
+}
+
+.project-content h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.project-content p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* الـ Tags (أيقونات التقنيات) */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    color: #eee;
+    background: rgba(137, 107, 197, 0.2);
+}
+
+/* الوان مخصصة للـ Tags (اختياري) */
+.tag-react { background-color: rgba(97, 218, 251, 0.2); color: #61dafb; }
+.tag-node\.js { background-color: rgba(131, 205, 41, 0.2); color: #83cd29; }
+.tag-mongodb { background-color: rgba(71, 162, 72, 0.2); color: #47a248; }
+.tag-python { background-color: rgba(255, 212, 59, 0.2); color: #ffd43b; }
+.tag-cyber-security { background-color: rgba(255, 65, 54, 0.2); color: #ff4136; }
+
+/* زرار "View More" في الأسفل */
+.view-more-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.view-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+/* نفس تأثير الـ Glow على الزرار */
+.view-more-btn:hover {
+    box-shadow: 0 0 15px rgba(137, 107, 197, 0.6);
+}
+
+/* --- التجاوب (Responsive) --- */
+@media (max-width: 768px) {
+    .section-title { font-size: 36px; }
+    .project-card { margin-bottom: 20px; }
+    .project-image-wrapper { height: 180px; }
+}
+.lightParent{
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightPar2ent{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightPar3ent{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightPar4ent{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightPar5ent{
+    position: absolute;
+    left: 13%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightPar6ent{
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+.lightPar7ent{
+    position: absolute;
+    left: 50%;
+    top:0%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgb(25, 15, 36),rgb(126, 23, 235));
+    width: 500px;
+    height: 500px;
+    z-index: -100;
+    border-radius: 100%;
+    opacity: 0.5;
+    filter: blur(100px);
+    
+}
+/* تنسيق الـ iframe الخاص بالمعاينة الحية */
+.project-preview-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #1a1a1a; /* خلفية غامقة تبان لحد ما يحمل */
+    pointer-events: none; /* عشان الماوس لما يجي فوقه ما يوقفش تأثير الـ Hover والـ Overlay */
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-preview-iframe {
+    transform: scale(1.05); /* زوم خفيف للمعاينة وقت الـ hover */
+}
+
+/* الألوان المخصصة للـ Tags الجديدة بتاعتك */
+.tag-html5-canvas { background-color: rgba(227, 79, 38, 0.2); color: #e34f26; }
+.tag-vanilla-js { background-color: rgba(247, 223, 30, 0.2); color: #f7df1e; }
+.tag-css3 { background-color: rgba(21, 114, 182, 0.2); color: #1572b6; }
+.tag-frontend { background-color: rgba(0, 212, 255, 0.2); color: #00d4ff; }
+/* شبكة المشاريع (Grid) المحدثة للتجاوب الذكي */
+.projects-grid {
+    display: grid;
+    /* السطر ده السحر كله: هيخلي الكروت تترص جنب بعض تلقائي بحد أقصى 4 كروت في الشاشات الكبيرة ويمشي مع الشاشات الصغيرة */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* المسافات بين الكروت */
+    width: 90%;
+    max-width: 1200px; /* عشان نلم الليلة في الشاشات العريضة جداً وما يفرش منها */
+    margin: 70px auto 0 auto;
+}
+
+/* تحديد أقصى عرض للكارت عشان يحافظ على هيبته وما يتفردش بالعرض */
+.project-card {
+    background: rgba(137, 107, 197, 0.05);
+    border: 1px solid rgba(137, 107, 197, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    max-width: 360px; /* كدة الكارت عمره ما هيزيد عن المقاس ده وهيطلع شيك جداً */
+    margin: 0 auto; /* يوسطن الكارت لو الشاشة صغيرة */
+    width: 100%; /* ياخد المساحة المتاحة ليه في الـ Grid بس بحد أقصى المقاس اللي فوق */
+}

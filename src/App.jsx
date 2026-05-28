@@ -6,6 +6,9 @@ import './App.css'
 import WorksNav from './components/MainPart/WorksNav'
 import AboutHeader from './components/About/Header'
 import SkillServices from './components/About/SkillServices'
+import Projects from './components/About/Projects'
+import Contact from './components/About/contact'
+import useScrollReveal from './ScrollReveal'; // استيراد السكريبت
 function BRFu(){
   return(
     <div className="BRFu">
@@ -15,11 +18,12 @@ function BRFu(){
 }
 
 function App() {
+  useScrollReveal();
   return (
     <>
       <Header />
-      <MainPart />
       <PicturePart />
+      <MainPart />
       <BRFu />
       <WorksNav />
       <br></br>
@@ -34,6 +38,8 @@ function App() {
       <SkillServices />
             <BRFu />
             <BRFu />
+      <Projects />
+      <Contact />
 
     </>
   )

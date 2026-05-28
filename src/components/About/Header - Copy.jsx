@@ -39,7 +39,7 @@ function Header() {
             <div className="YearsDat">
               <TimeYear classe={"year1 time"} year={"2023"} descreption={"Started my coding journey with HTML & CSS. The very beginning."}/>
               <TimeYear classe={"year2 time"} year={"2024"} descreption={"Stepped into JavaScript & Frontend Logic. Mastered JS fundamentals and brought static pages to life. Proudly developed Arbahi V1, my first functional project."}/>
-              <TimeYear classe={"year3 time pr"} year={"2025"} descreption={"Dedicated the year to advanced Problem Solving and mastering JavaScript deep concepts. By late 2025, I transitioned into the React ecosystem to build scalable and dynamic web applications."}/>
+              <TimeYear classe={"year3 time"} year={"2025"} descreption={"Dedicated the year to advanced Problem Solving and mastering JavaScript deep concepts. By late 2025, I transitioned into the React ecosystem to build scalable and dynamic web applications."}/>
             </div>
         </div>
         <div className="lightParts"></div>

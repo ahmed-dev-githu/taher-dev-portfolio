@@ -96,8 +96,7 @@ function Services() {
     </div>   
     <div className="lightParrrs">
     </div>   
-    <BRFu />
-    <BRFu />
+
     </>
 
   )

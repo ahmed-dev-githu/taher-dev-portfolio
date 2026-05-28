@@ -1,0 +1,145 @@
+#contact-section {
+    padding: 80px 0;
+    color: white;
+}
+.containerSpan{
+    text-align: center ;
+    margin-bottom: 20px;
+}
+.contact-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* الكروت الزجاجية */
+.info-card, .status-card {
+    background: rgba(137, 107, 197, 0.05);
+    border: 1px solid rgba(137, 107, 197, 0.1);
+    border-radius: 25px;
+    padding: 40px;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.info-card:hover, .status-card:hover {
+    border-color: rgb(137, 107, 197);
+    box-shadow: 0 10px 30px rgba(137, 107, 197, 0.2);
+}
+
+.contact-info { flex: 1; min-width: 320px; }
+.contact-status { flex: 1; min-width: 320px; }
+
+.info-card h3, .status-card h4 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, rgb(218, 183, 224));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: rgb(137, 107, 197);
+    background: rgba(137, 107, 197, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.info-item span {
+    display: block;
+    font-size: 14px;
+    color: #888;
+}
+
+.info-item a, .info-item p {
+    font-size: 18px;
+    color: #eee;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.info-item a:hover { color: rgb(218, 183, 224); }
+
+/* روابط السوشيال ميديا */
+.social-links-contact {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-links-contact a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: white;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-links-contact a:hover {
+    background: rgb(137, 107, 197);
+    transform: translateY(-5px);
+}
+
+/* جزء حالة العمل (Status) */
+.status-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #4ade80; /* أخضر للإشارة للتوفر */
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4ade80;
+    animation: blink 1.5s infinite;
+}
+
+.status-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.status-content li {
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.status-content li i {
+    color: rgb(137, 107, 197);
+    margin-right: 10px;
+}
+
+.vortex-badge {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #555;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}

@@ -1,22 +1,414 @@
+
 .BRFu {
     width: 100%;
     height: 100px;
     background: transparent;   
 }
 /* App.css */
-html {
-  scroll-behavior: smooth !important;
+
+/* السحر هنا: بنلغي تأثير الـ div على الـ positioning تماماً */
+.reveal {
+    display: contents; 
 }
 
-/* App.css */
+/* بنطبق الأنميشن على "الأبناء المباشرين" للـ reveal */
+/* وده بيضمن إن الـ MainPart والـ PicturePart يتأثروا */
+.reveal > div, 
+.reveal > section, 
+.reveal > header, 
+.reveal > .WorksNav {
+    opacity: 0;
+    filter: blur(10px);
+    /* ممنوع نلمس الـ transform هنا نهائياً */
+    transition: opacity 1.2s ease, filter 1.2s ease;
+    pointer-events: none;
+}
 
-/* بنطبقها على الـ html والـ body مع بعض عشان نضمن المتصفحات */
+/* لما السكرول يوصل */
+.reveal-active > div, 
+.reveal-active > section, 
+.reveal-active > header, 
+.reveal-active > .WorksNav {
+    opacity: 1 !important;
+    filter: blur(0) !important;
+    pointer-events: auto !important;
+}
+
+/* عشان الـ PicturePart ميتعطلش الأنميشن بتاعها */
+.reveal-active .PicturePart {
+    animation: shakeRotate 10s ease-in-out infinite !important;
+}
+/* --- 1. أنميشن الصورة الجديد (فوق وتحت) --- */
+@keyframes floatUpDown {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-20px); }
+}
+
+/* --- 2. تنسيق المنيو والبرجر في الـ Header --- */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 10000;
+}
+.burger span {
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+/* --- 3. تعديلات الموبايل --- */
+@media (max-width: 768px) {
+    /* إظهار البرجر */
+    .burger { display: flex; margin-right: 20px; }
+    
+    /* تحويل اللينكات لمنيو منسدل */
+    .links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* مخفي بره الشاشة */
+        width: 70%;
+        height: 100vh;
+        background: rgba(25, 15, 36, 0.98);
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center;
+        gap: 30px !important;
+        transition: 0.5s;
+        z-index: 9999;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    .links.open { right: 0; } /* يظهر لما نضغط برجر */
+
+    /* الأب في الموبايل عشان نرتب الصورة فوق الكلام */
+    #home-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 80px;
+    }
+
+    /* الصورة فوق الـ MainPart */
+    .PicturePart {
+        position: relative !important;
+        order: 1; /* يخليها تطلع فوق */
+        left: 50% !important;
+        top: 0 !important;
+        margin-top: 50px !important;
+        width: 200px !important;
+        height: 200px !important;
+        border-radius: 100% !important; /* دائرية تماماً */
+        animation: floatUpDown 4s ease-in-out infinite !important; /* أنميشن فوق وتحت */
+        transform: translateX(-50%) !important;
+    }
+
+    /* الكلام تحت الصورة */
+    .MainPart {
+        position: relative !important;
+        order: 2; /* يخليه ينزل تحت */
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        text-align: center;
+        padding: 20px !important;
+    }
+
+    /* تصغير الخطوط في الموبايل */
+    .MainPart .WhoJop .spand { font-size: 32px !important; }
+    .ps { font-size: 20px !important; }
+
+    /* إخفاء الإضاءات عشان متعملش سكرول */
+    [class*="lightPar"] { display: none !important; }
+
+    /* البرجر يتحول لـ X لما يفتح */
+    .burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .burger.active span:nth-child(2) { opacity: 0; }
+    .burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+}
+
+/* إصلاح التداخل مع بقية الأقسام */
+.Skills-Section, .Services-Section, #projects-section, #contact-section {
+    position: relative !important;
+    z-index: 5;
+    background: rgb(25, 15, 36);
+}
+
+/* --- إصلاح قسم الخدمات (Services) للموبايل --- */
+@media (max-width: 768px) {
+    
+    /* 1. إلغاء العرض الثابت (1200px) اللي كان مخليه زي الكمبيوتر */
+    .Services-Cards {
+        width: 100% !important; /* خليه ياخد عرض الموبايل */
+        max-width: 100vw;
+        display: flex !important;
+        flex-direction: column !important; /* رتب الخدمات تحت بعض */
+        align-items: center !important;
+        gap: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    /* 2. ضبط الكارت الواحد عشان ميبقاش طالع بره الشاشة */
+    .Service-Card {
+        width: 90% !important; /* عرض الكارت بالنسبة للموبايل */
+        height: auto !important; /* خليه يتمدد حسب الكلام اللي جواه */
+        min-height: 200px !important;
+        margin: 0 auto !important;
+        padding: 20px !important;
+    }
+
+    /* 3. تصغير الأيقونات والعناوين في الخدمات عشان الزحمة */
+    .Service-Card i {
+        font-size: 30px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .Service-Card h2 {
+        font-size: 20px !important;
+    }
+
+    .Service-Card p {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 4. إلغاء أي هوامش جانبية كبيرة في القسم الأب */
+    .Skills-Section {
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+}
+/* --- 1. إصلاح قسم About Me (التايم لاين) --- */
+@media (max-width: 768px) {
+    .FatherOfTimeLine {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 40px; /* مسافة للخط الرأسي */
+        height: auto !important;
+        margin-top: 50px;
+    }
+
+    .TimeLine {
+        left: 20px !important; /* تثبيت الخط في اليسار */
+        top: 0 !important;
+        transform: none !important;
+        height: 100% !important;
+        min-height: 500px;
+        position: absolute !important;
+    overflow-y:scroll;
+    }
+
+    /* إصلاح السنوات والكلام في التايم لاين */
+    .year1, .year2, .year3 {
+        position: relative !important;
+        left: 30px !important; /* مسافة عن الخط */
+        top: auto !important;
+        transform: none !important;
+        width: 85% !important;
+        text-align: left !important;
+        margin-bottom: 40px !important;
+        background: rgba(137, 107, 197, 0.1) !important;
+        padding: 15px !important;
+        border-radius: 10px;
+    overflow-y:scroll;
+    }
+.pr p {
+	font-size:12px !important
+}
+.a-mail{
+  font-size : 15px !important;
+}
+    /* إخفاء الدوائر والشرطات العرضية في الموبايل عشان الزحمة */
+    .Shartaa, .spann1, .spann2 {
+        display: none !important;
+    }
+}
+
+/* --- 2. جعل قسم الـ Skills يملأ الشاشة مثل Services --- */
+.Skill-Cards {
+    width: 100% !important;
+    max-width: 1200px; /* نفس مقاس الـ Services */
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 25px !important;
+    margin: 0 auto !important;
+}
+
+.Skill-Card {
+    /* جعل الكروت مرنة وتملأ المساحة */
+    flex: 1 1 180px; 
+    max-width: 220px;
+    height: auto !important;
+    min-height: 180px;
+    padding: 25px !important;
+}
+
+@media (max-width: 768px) {
+    .Skill-Cards {
+        gap: 15px !important;
+    }
+    .Skill-Card {
+        flex: 1 1 40%; /* كارتين بجانب بعض في الموبايل */
+        max-width: 45%;
+    }
+}
+
+/* --- 3. تأكيد إصلاح الـ Services --- */
+@media (max-width: 768px) {
+    .Services-Cards {
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .Service-Card {
+        width: 90% !important;
+    }
+}
+/* --- 1. إصلاح شامل لمنع السحب يمين (للأبد) --- */
 html, body {
-  scroll-behavior: smooth !important;
+    max-width: 100%;
+    overflow-x: hidden !important;
 }
 
-/* التركة دي عشان لو فيه أي Scroll Container تاني */
-* {
-  scroll-behavior: smooth !important;
+/* --- 2. تعديلات الموبايل فقط --- */
+@media (max-width: 768px) {
+    
+    /* إصلاح الهيدر واللوجو والاسم */
+    header {
+        position: fixed !important;
+        width: 100vw !important;
+        left: 0 !important;
+        top: 0 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        padding: 10px 20px !important;
+        background: rgba(25, 15, 36, 0.9) !important;
+        box-sizing: border-box !important;
+    }
+
+    .firstData {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px;
+    }
+
+    .firstData h1 {
+        margin: 0 !important;
+        font-size: 18px !important;
+        white-space: nowrap;
+    }
+
+    /* إصلاح ترتيب الصورة (فوق) والكلام (تحت) */
+    #home-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding-top: 100px !important;
+    }
+
+    .PicturePart {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 200px !important;
+        height: 200px !important;
+        border-radius: 100% !important; /* صورة مدورة */
+        margin: 20px auto !important;
+        order: 1; /* تظهر أولاً */
+        animation: floatImg 3s ease-in-out infinite !important; /* أنميشن فوق وتحت */
+    }
+
+    @keyframes floatImg {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+
+    .MainPart {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 95% !important;
+        text-align: center !important;
+        padding: 10px !important;
+        height: auto !important;
+        order: 2; /* تظهر ثانياً */
+	text-align:center;
+    }
+
+    .MainPart .WhoJop .spand { font-size: 30px !important; }
+    .ps { font-size: 20px !important; }
+    #btn { width: 80%; margin: 20px auto; }
+
+    /* إصلاح قسم About Me (التايم لاين) */
+    .FatherOfTimeLine {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 20px !important;
+    }
+
+    .TimeLine {
+        left: 20px !important;
+        top: 0 !important;
+        transform: none !important;
+        height: 100% !important;
+        position: absolute !important;
+    }
+
+    .year1, .year2, .year3 {
+        position: relative !important;
+        left: 40px !important;
+        top: auto !important;
+        width: 85% !important;
+        transform: none !important;
+        text-align: left !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* قسم المهارات والخدمات - يملأ الشاشة */
+    .Skill-Cards, .Services-Cards {
+        width: 100% !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        padding: 0 10px !important;
+    }
+
+    .Skill-Card {
+        flex: 1 1 40% !important; /* كارتين جنب بعض */
+        max-width: 45% !important;
+        height: auto !important;
+    }
+
+    .Service-Card {
+        width: 90% !important; /* كارت واحد كبير */
+    }
+
+    /* إخفاء الدوائر المضيئة المسببة للسحب يمين */
+    .lightPart, .lightPart2, [class*="lightPar"] {
+        display: none !important;
+    }
+
+    /* ضبط الـ WorksNav */
+    .WorksNav {
+        flex-direction: row !important;
+        gap: 15px !important;
+        height: auto !important;
+        padding: 20px 5px !important;
+    }
+    .card { width: 30% !important; font-size: 12px; }
 }
-/* الحالة المبدئية للعنصر: مخفي ومنزاح للأسفل */
+.p{
+	width:100%;
+}
+.firstData h1 {
+	margin-left: 50px !important;
+}
