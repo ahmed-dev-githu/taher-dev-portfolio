@@ -48,7 +48,7 @@ function MainPart() {
             <div className="p">
                 <p>I am a passionate front-end web developer with experience in creating responsive and user-friendly websites.</p>
             </div>
-            <a href="Ahmed_Taher_ATS_CV_EN.pdf" download="Ahmed_Taher_ATS_CV_EN.pdf" style={{textDecoration : "none",color:"white"}}><button id='btn' className="button">CV</button></a>
+            <a href="#contact-section" style={{textDecoration : "none",color:"white"}}><button id='btn' className="button">Contact</button></a>
             <div className="socialLink">
                 <a href="https://www.facebook.com/profile.php?id=61578296423872" className="facebook" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook"></i></a>
                 <a href="https://www.tiktok.com/@eng.ahmed.vortex?_r=1&_t=ZS-95BLm4bcUpF" className="tiktok" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-tiktok"></i></a>
