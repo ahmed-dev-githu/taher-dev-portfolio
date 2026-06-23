@@ -73,7 +73,7 @@ export default function Projects() {
           ))}
         </div>
         
-        <div className="view-more-container">
+        <div className="view-more-container" style={{display:"flex"}}>
             <a style={{textDecoration: 'none'}} href="https://github.com/ahmed-dev-githu" target="_blank" rel="noopener noreferrer" className="button view-more-btn">
                 View More on GitHub <i className="fa-brands fa-github"></i>
             </a>
