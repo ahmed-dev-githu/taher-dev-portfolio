@@ -77,6 +77,8 @@ export default function Projects() {
             <a style={{textDecoration: 'none'}} href="https://github.com/ahmed-dev-githu" target="_blank" rel="noopener noreferrer" className="button view-more-btn">
                 View More on GitHub <i className="fa-brands fa-github"></i>
             </a>
+            <a href="Ahmed_Taher_ATS_CV_EN.pdf" download="Ahmed_Taher_ATS_CV_EN.pdf" style={{textDecoration : "none",color:"white"}}><button id='btn' className="button">CV</button></a>
+
         </div>
       </div>
       <div className="lightPar4ent"></div>
