@@ -52,7 +52,7 @@ function MainPart() {
             <div className="socialLink">
                 <a href="https://www.facebook.com/profile.php?id=61578296423872" className="facebook" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook"></i></a>
                 <a href="https://www.tiktok.com/@eng.ahmed.vortex?_r=1&_t=ZS-95BLm4bcUpF" className="tiktok" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-tiktok"></i></a>
-                <a href="https://www.github.com" className="github" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
+                <a href="https://github.com/ahmed-dev-githu/" className="github" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
             </div>
         </div>
     )
