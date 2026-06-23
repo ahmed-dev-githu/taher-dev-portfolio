@@ -307,3 +307,11 @@
     margin: 0 auto; /* يوسطن الكارت لو الشاشة صغيرة */
     width: 100%; /* ياخد المساحة المتاحة ليه في الـ Grid بس بحد أقصى المقاس اللي فوق */
 }
+
+
+
+. view-more-container{
+    width: 100%; 
+    height: 80px; 
+    justify-content: space-between; 
+} 
